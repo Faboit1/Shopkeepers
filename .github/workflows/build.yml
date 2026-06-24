@@ -66,3 +66,9 @@ jobs:
       uses: actions/upload-artifact@v6
       with:
         path: staging
+    # Create a GitHub Release with the compiled jar when a tag is pushed.
+    - name: Create GitHub Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: staging/*.jar
