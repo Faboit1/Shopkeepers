@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out repository code
-      uses: actions/checkout@v6
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0  # SonarCloud: Shallow clones should be disabled for a better relevancy of analysis
     - name: Set up JDK 25
@@ -63,7 +63,7 @@ jobs:
     - name: Stage artifacts for upload
       run: mkdir staging && cp build/*.jar staging
     - name: Upload artifacts
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v4
       with:
         path: staging
     # Create a GitHub Release with the compiled jar when a tag is pushed.
